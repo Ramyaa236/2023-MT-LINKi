@@ -1,0 +1,284 @@
+.inline-block{
+  display: inline;
+  width: 17vw;
+  height: 40vh;
+  padding: 0;
+  table-layout: fixed;
+}
+
+th,td{
+  border: solid 1.5px
+}
+
+th{
+  height: 50px;
+  font-size: clamp(14px, 1vh, 25px)
+}
+
+
+td{
+  width: 15vw;
+  height: 50px;
+  background-color: lightgreen;
+  font-size: clamp(10px, 1vw, 25px);
+  color:black;
+  border: solid 1.5px black;
+}
+
+table {
+  border-collapse:  collapse;/* セルの線を重ねる */
+  border: solid 1.5px black;
+  table-layout: fixed;
+  margin: 0 1vw;
+  empty-cells: hide;
+}
+
+.block{
+  display: block;
+  width: 17vw;
+  height: 17vw;
+  padding: 2vh 0;
+}
+
+.inline-block0{
+  display: inline-block;
+  width: 17vw;
+  height: 35vh;
+  padding:1vw;
+}
+
+.parent {
+  text-align: center;         /* 子要素を左右中央揃えにする */
+  border: solid 0px;          /* 枠線指定 */
+  padding:  2px;             /* 余白指定 */
+}
+
+.block1{
+  z-index: 10;  
+  position: fixed;
+  top:1vh;
+  display: block;
+  height: 50px;
+  padding: 0px;
+  margin: 0;
+}
+
+.pointer {cursor: pointer;}
+
+.example{
+  display: block;
+  width: 150px;
+  background: #c8eac3;
+  color: #000;
+  padding: 10px;
+  box-sizing: border-box;
+  text-align: center;
+  text-decoration: none;
+  border-radius: 30px;
+  margin-left: auto; 
+}
+
+/*margin-left: auto; */
+
+.example:active{
+  background: #1a720d;
+  color: #FFF;
+}
+
+img{
+  max-width: 100%;
+  max-height: 100%;
+}
+
+.btn-text-left{
+	text-align: left;	
+}
+.btn-text-right{
+	text-align: right;
+}
+.btn-text-center{
+	text-align: center;	
+}
+
+.container { 
+  height: 50px;
+  position: absolute;
+  border: none; 
+  display:block;
+}
+
+.container1 {
+  height: 50px;
+  display:flex;
+  justify-content: space-between
+}
+
+.left {
+  float:left;
+}
+
+.center {
+  float:center;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.right {
+  float:right;
+}
+
+.dropbtn {
+  background-color: #3498DB;
+  color: white;
+  padding: 16px;
+  font-size: 16px;
+  border: none;
+  cursor: pointer;
+}
+
+.dropbtn:hover, .dropbtn:focus {
+  background-color: #2980B9;
+}
+
+
+.dropdown {
+  position: relative;
+  display: inline-block;
+  }
+
+  .dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: #f1f1f1;
+    min-width: 140px;
+    overflow: auto;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    z-index: 1;
+  }
+
+
+.dropdown-content a {
+  color: black;
+  padding: 12px 16px;
+  text-decoration: none;
+  display: block;
+}
+
+.dropdown-content a:hover {background-color: powderblue;}
+
+.dropdown:hover .dropdown-content {display: block;}
+
+.dropdown:hover .dropbtn {background-color: #3e8e41;}
+
+
+.chartBox{
+  width: 200px;
+  height: 200px;
+  margin: 0 auto;
+  }
+
+.fixed-element { 
+  position: fixed; 
+  top: 10px; 
+  right: 10px; 
+  }
+
+  a {
+    text-decoration: none;
+    display: inline-block;
+    padding: 8px 16px;
+  }
+  
+  a:hover {
+    background-color: #ddd;
+    color: white;
+  }
+  
+  .dropdown-content1 {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    min-width: 350px;
+    box-shadow: 0px 8px 16px 0px rgba(0,0,0,0.2);
+    padding: 12px 16px;
+    z-index: 1;
+    text-align: center; 
+    align-items: center;
+    justify-content: center;
+  }
+  
+  .dropdown1:hover .dropdown-content1 {
+    display: block;
+  }
+  
+  body{
+    padding: 0;
+    overflow: scroll;
+    display: block;
+    justify-content: center;
+  }
+
+button {
+  background: none;
+  appearance: none;
+  -webkit-appearance: none;
+  -ms-appearance: none;
+  -moz-appearance: none;
+  border: none;
+  cursor: pointer;
+}
+
+.page-btn {
+  background: gray;
+  color: black;
+  height: 35px;
+  border-radius: 2px;
+  padding: 0 10.5px;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  transition: background 0.3s ease;
+  margin: 0 2px;
+  font-size: 1em;
+}
+
+.page-btn:first-of-type {
+  margin-left: 0;
+}
+
+.page-btn:last-of-type {
+  margin-right: 0;
+}
+
+.page-btn:not([class$="-page"]) {
+  width: 35px;
+}
+
+.pagination-buttons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  top: 10%;
+  left: 30%;
+  right: 30%;
+}
+
+.page-btn[class*="-page"] {
+  background: gray;
+  font-size: 0.6em;
+  font-weight: 700;
+  border-color:black;
+  margin: 0 2px;
+  font-size: 1em;
+}
+
+.page-btn.active {
+  background: rgb(95, 192, 224);
+  color: white;
+  border-color:black;
+}
+
+.page-btn[disabled] {
+  opacity: 0.3;
+}

@@ -1,0 +1,227 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=UTF-8"/>
+<meta name="keywords"content="html,css,javascript"/>
+<script type="text/javascript" src=""></script>
+<script src="chart.js"></script>
+<script src="mugen.js"></script>
+<link rel="stylesheet" href=異常管理.css>
+  <title>異常管理</title>
+
+</head>
+
+<body height:100%; width:100%>
+
+
+
+  <div class="center">
+    <button style="background-color:greenyellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:250px;"><b>開始日</b><input type="date" id="開始日" name="開始日"  style="border: 1px solid; border-color:black; color:black; font-size: 1.2em"> </button>
+    <button style="background-color:greenyellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:280px;"><b>開始時刻</b><input type="time" id="開始時刻" name="開始時刻" style="border: 1px solid; border-color:black; color:black; font-size: 1.2em"> </button>
+    <button style="background-color:greenyellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:250px;"><b>終了日</b><input type="date" id="終了日" name="終了日" style="border: 1px solid; border-color:black; color:black; font-size: 1.2em"> </button>
+    <button style="background-color:greenyellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:280px;"><b>終了時刻</b><input type="time" id="終了時刻" name="終了時刻" style="border: 1px solid; border-color:black; color:black; font-size: 1.2em"> </button>
+  </div>
+  
+  <div class="left">
+    <div class="dropdown">
+      <button onclick="myFunction()" style="background-color:yellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:140px;"><b>ライン選択</b></button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#" onclick="hide1()"><span id="input01"></span></a>
+        <a href="#" onclick="hide2()"><span id="input02"></span></a>
+      </div>
+    </div>
+    <br>
+    <button href="#"  id="reload" for="reload" style="background-color:yellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:140px;"><b>更新</b></button>
+    <br>
+    <div class="dropdown">
+      <button onclick="myFunction()" style="background-color:yellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:140px;"><b>回数/停止時間</b></button>
+      <div id="myDropdown" class="dropdown-content">
+        <a href="#" onclick="countrank()">回数</a>
+        <a href="#" onclick="timerank()">停止時間</a>
+      </div>
+    </div>
+  </div>
+
+
+  <div class="right">
+    <button href="#"  id="Nowinput" for="Nowinput" style="background-color:yellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:140px;"><b><span id="nowinput"></span></b></button>
+    <br> 
+    <button href="#"  id="Nowdisplay" for="Nowdisplay" style="background-color:yellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:140px;"><b><span id="nowdisplay"></span></b></button>
+    <br>
+    <button href="#" id="output" for="output"  style="background-color:yellow; border: 1px solid; border-color:black; color:black; font-size: 1.2em; height:50px; width:140px;"><b>データ出力</b></button>
+  </div>
+
+  <div class="center">
+    <div id="pagination-container"></div>   
+     <button><script src="異常管理pageswitch.js"></script></button>
+  </div>
+
+<br><br><br><br><br><br><br>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputa"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input1"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input2"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input3"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input4"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input5"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+
+</div>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump1" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputb"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input6"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input7"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input8"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input9"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input10"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump2" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputc"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input11"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input12"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input13"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input14"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input15"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump3" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputd"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input16"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input17"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input18"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input19"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input20"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump4" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inpute"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input21"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input22"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input23"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input24"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input25"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump5" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputf"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input26"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input27"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input28"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input29"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input30"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump6" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputg"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input31"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input32"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input33"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input34"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input35"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump7" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputh"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input36"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input37"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input38"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input39"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input40"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump8" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputi"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input41"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input42"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input43"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input44"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input45"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<div class="inline-block0">
+  <div class="inline-block">
+    <table>
+      <tbody>
+        <tr><td class="pointer" id = "pagejump9" for = "pagejump" style="font-size: 1.5em" align="center" colspan="2"><b><span id="inputj"></span></b></td></tr>
+        <tr><th style="font-size: 1em">1位</th><th style="width:70%"><span id="input46"></span></th></tr>
+        <tr><th style="font-size: 1em">2位</th><th><span id="input47"></span></th></tr>
+        <tr><th style="font-size: 1em">3位</th><th><span id="input48"></span></th></tr>
+        <tr><th style="font-size: 1em">4位</th><th><span id="input49"></span></th></tr>
+        <tr><th style="font-size: 1em">5位</th><th><span id="input50"></span></th></tr>
+      </tbody>
+    </table>
+  </div>
+</div>
+
+  <script src="run.js" type="module"></script>  
+  <script src="mugen.js"></script>
+
+
+<script>
+
+</script>
+
+
+
+
+</body>
+
+</html>
